@@ -13,7 +13,7 @@ $ cordova plugin add org.apache.cordova.geolocation
 $ cordova build ios
 $ cordova emulate ios
 ```
-To build, install cordova above version 4+
+To build, install latest cordova or above version 4+, then run
 
 ```bash
 $ cordova platform add ios
