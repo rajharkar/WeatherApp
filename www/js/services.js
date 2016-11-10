@@ -211,6 +211,7 @@ angular.module('ionic.weather.services', ['ngResource'])
     lat: '@lat',
     lon: '@lng',
     radius: 2,
+    tags: '@tags',
     safe_search: 1,
     jsoncallback: 'JSON_CALLBACK',
     api_key: FLICKR_API_KEY,

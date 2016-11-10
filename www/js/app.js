@@ -85,7 +85,7 @@ angular.module('ionic.weather', ['ionic', 'ionic.weather.services', 'ionic.weath
 
       Geo.reverseGeocode(lat, lng).then(function(locString) {
         $scope.currentLocationString = locString;
-        _this.getBackgroundImage(lat, lng, locString);
+        _this.getBackgroundImage(lat, lng, locString.replace(', ', ','));
       });
       _this.getCurrent(lat, lng);
     }, function(error) {
