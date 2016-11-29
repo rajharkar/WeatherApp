@@ -7,9 +7,9 @@ To build, install cordova, then run:
 
 ```bash
 $ cordova platform add ios
-$ cordova plugin add org.apache.cordova.device
-$ cordova plugin add org.apache.cordova.statusbar
-$ cordova plugin add org.apache.cordova.geolocation
+$ cordova plugin add cordova-plugin-device
+$ cordova plugin add cordova-plugin-statusbar
+$ cordova plugin add cordova-plugin-geolocation
 $ cordova build ios
 $ cordova emulate ios
 ```
