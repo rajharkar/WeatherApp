@@ -73,7 +73,7 @@ var wundergroundWeather = ['$q', '$resource', 'WUNDERGROUND_API_KEY', function($
   }
 }];
 */
-
+var address1;
 var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY', function($q, $resource, $http, FORECASTIO_KEY) {
   var url = 'https://api.forecast.io/forecast/' + FORECASTIO_KEY + '/';
 
@@ -146,7 +146,7 @@ angular.module('ionic.weather.services', ['ngResource'])
   return obj;
 })
 
-.factory('Geo', function($q) {
+.factory('Geo', function($q,$rootScope) {
   return {
     reverseGeocode: function(lat, lng) {
       var q = $q.defer();
@@ -165,7 +165,9 @@ angular.module('ionic.weather.services', ['ngResource'])
             var foundState = false;
             for(var i = 0; i < r.address_components.length; i++) {
               a = r.address_components[i];
+              $rootScope.address1 = $rootScope.address1 + a.long_name;
               types = a.types;
+              address1 = address1 + r.address_components[i].long_name;
               for(var j = 0; j < types.length; j++) {
                 if(!foundLocality && types[j] == 'locality') {
                   foundLocality = true;
@@ -185,6 +187,7 @@ angular.module('ionic.weather.services', ['ngResource'])
         }
       })
 
+      
       return q.promise;
     },
     getLocation: function() {
